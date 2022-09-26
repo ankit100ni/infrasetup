@@ -42,3 +42,9 @@ def get_instance_id():
     with open('config.json') as f:
         instance_details = json.load(f)
     return instance_details['InstanceId']['chef_automate'], instance_details['InstanceId']['chef_server']
+
+def get_pvt_key():
+    with open('config.json') as f:
+        pvt_key = json.load(f)
+    return pvt_key['private_key_path']
+    
