@@ -1,6 +1,8 @@
 # Configuration of Chef Infra setup
 The script is created to automate the process for reconfiguring Chef Automate and Chef Server with updated IP and FQDN after the daily shut down of servers
 
+To run the script, update the confi.json file with instance ID from AWS and executed init.py
+
 ## Solution preface
 - Start the ec2 instances with the help of instnace Ids mentioned in config.json
 - Configure Chef Server
