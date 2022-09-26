@@ -1,0 +1,7 @@
+{
+    "InstanceId" : {
+        "chef_automate" : "i-0e2d4a2a02502ae5c",
+        "chef_server" : "i-0f833de25ef8a3d92"
+    },
+    "private_key_path" : "/Users/anksoni/Documents/Docs/SecurityPass/AWSKeys/Ankit.pem"
+}
