@@ -12,12 +12,12 @@ fi
 echo "Configuring the Chef Automate url on path /etc/opscode/chef-server.rb"
 
 sudo tee /etc/opscode/chef-server.rb > /dev/null <<EOT
-"data_collector['root_url'] = 'https://@@@@automate_fqdn@@@@/data-collector/v0/'
+data_collector['root_url'] = 'https://@@@@automate_fqdn@@@@/data-collector/v0/'
 # Add for Chef Infra Client run forwarding
 data_collector['proxy'] = true
 # Add for compliance scanning
 profiles['root_url'] = 'https://@@@@automate_fqdn@@@@'
-# Save and close the file"
+# Save and close the file
 EOT
 
 echo "Reconfiguring the chef server configuration"
