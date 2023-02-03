@@ -1,3 +1,7 @@
+#Flow
+
+<img width="481" alt="image" src="https://user-images.githubusercontent.com/55018863/216577733-17d74140-3081-486d-858b-9c13fe3f2c64.png">
+
 # Configuration of Chef Infra setup
 The script is created to automate the process for reconfiguring Chef Automate and Chef Server with updated IP and FQDN after the daily shut down of servers
 
