@@ -1,4 +1,5 @@
 import os
+import subprocess
 import sys
 import boto3
 import time
@@ -52,12 +53,23 @@ def main():
 
     chef_server_config = replace_all('configure_chef_server.sh', tag_replace_dict)
     chef_automate_config = replace_all('configure_chef_automate.sh', tag_replace_dict)
-
-    print(chef_server_config)
+    chef_workstation_config = replace_all('configure_workstation_local.sh', tag_replace_dict)
 
     execute_cofiguration(script=chef_server_config, host=server_pubIP, username='ec2-user', pvt_key=pvt_key)
 
     execute_cofiguration(script=chef_automate_config, host=automate_pubIP, username='ec2-user', pvt_key=pvt_key)
+    print(server_pubfqdn)
+    print(chef_workstation_config)
+
+    # os.system(chef_workstation_config)
+    workstation_exec = subprocess.Popen(chef_workstation_config, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    res = workstation_exec.communicate()
+    print("retcode =", workstation_exec.returncode)
+    print("res =", res)
+    print("stderr =", res[1])
+    for line in res[0].decode(encoding='utf-8').split('\n'):
+        print(line)
 
     print("--- %s seconds ---" % (time.time() - start_time))
 
